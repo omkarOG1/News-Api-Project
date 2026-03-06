@@ -9,7 +9,7 @@ When the page loads, it automatically fetches the top headlines. Users can also 
 
 ## Features
 
-- Fetches latest news using NewsAPI
+- This project fetches news articles using the GNews API.
 - Displays news articles in a card layout
 - Search functionality to find news by topic
 - Clickable cards that open the full article in a new tab
