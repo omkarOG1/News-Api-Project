@@ -51,7 +51,7 @@ Possible improvements for this project:
 
 ## API Used
 
-https://newsapi.org/
+https://gnews.io/
 
 ---
 
