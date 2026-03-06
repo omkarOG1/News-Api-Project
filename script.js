@@ -1,4 +1,4 @@
-const apiKey = "0ee3b366dfba46b9a1c6ce25c7f26496";
+const apiKey = "1358c0e1e96ce46cf3f9dcb72f40fc98";
 const blogContainer = document.getElementById("blog-container");
 const inputField = document.getElementById("search-input");
 const searchBtn = document.querySelector(".search-Btn");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function randomNews() {
   try {
-    const apiUrl = `https://newsapi.org/v2/top-headlines?country=us&pageSize=20&apiKey=${apiKey}`;
+    const apiUrl = `https://gnews.io/api/v4/top-headlines?lang=en&pageSize=10&token=${apiKey}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     const articles = data.articles;
@@ -34,7 +34,7 @@ function displayRandomNews(articles) {
     blogcard.classList.add("blog-card");
     const title = truncateText(article.title, 30);
     const description = truncateText(article.description, 120);
-    const clutter = `<img src="${article.urlToImage ||"images/fallBackImg.jpg" }" alt="${article.title}" 
+    const clutter = `<img src="${article.image || "images/fallBackImg.jpg"}" alt="${article.title}" 
      onerror="this.src='images/fallBackImg.jpg'">
     
             <h2>${title}</h2>
@@ -50,10 +50,10 @@ function displayRandomNews(articles) {
 }
 
 searchBtn.addEventListener("click", async () => {
-    console.log("clicked")
+  console.log("clicked");
   const query = inputField.value.trim();
-    if (!query) return;
-  const apiUrl = `https://newsapi.org/v2/everything?q=${query}&apiKey=${apiKey}`;
+  if (!query) return;
+  const apiUrl = `https://gnews.io/api/v4/search?q=${query}&lang=en&max=10&token=${apiKey}`;
 
   const response = await fetch(apiUrl);
   const data = await response.json();
