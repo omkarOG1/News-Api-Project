@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function randomNews() {
   try {
-    const apiUrl = `https://gnews.io/api/v4/top-headlines?lang=en&pageSize=10&token=${apiKey}`;
+    const apiUrl = `https://cors-anywhere.herokuapp.com/https://gnews.io/api/v4/top-headlines?lang=en&max=10&token=${apiKey}`;
     const response = await fetch(apiUrl);
     const data = await response.json();
     const articles = data.articles;
